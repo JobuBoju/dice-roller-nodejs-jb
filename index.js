@@ -2,7 +2,7 @@ const express = require('express')
 app = express()
 
 const cors = require("cors")
-const randomNumber = Math.floor(Math.random() * 6) + 1;
+
 
 var url = require('url');
 var dt = require('./date-time');
@@ -44,7 +44,8 @@ app.get('/2plus2', (request, response) => {
 
 // Return the value of a rolled 6 sided dice.
 app.get('/d6', (request, response) => {
-	console.log('Calling "/5d6" on the Node.js server.')
+	const randomNumber = Math.floor(Math.random() * 6) + 1;
+	console.log('Calling "/d6" on the Node.js server.')
 	response.type('text/plain')
 	response.send(randomNumber.toString())
 })
